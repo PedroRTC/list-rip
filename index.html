@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List-Rip</title>
+    <!--style css-->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/loginUser.css" />
+    <link rel="stylesheet" href="css/employee.css" />
+    <link rel="stylesheet" href="css/list.css" />
+ ola mundo
+    <!--fonts google-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!--html2pdf-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="js/downloadPdf.js" defer></script>
+  </head>
+
+  <body>
+    <!---------------------------Login do usuário------------==-------------->
+    Olá Mundo
+    <div class="initialize_user">
+      <div class="container_form_user">
+        <form action="" class="form_user">
+          <div class="container_inpunt">
+            <input type="text" id="input_user" required />
+            <label for="input_user" id="label_user">Usuário</label>
+          </div>
+
+          <div class="container_inpunt">
+            <input type="password" id="input_password" required />
+            <label for="input_password" id="label_password">Senha</label>
+          </div>
+
+          <button class="button_init">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!----------------------Menu do top da pagina---------------------------->
+    <section class="container_menu">
+      <div class="logo_rip">
+        <img src="img/logo.png" alt="" />
+      </div>
+
+      <div class="container_search">
+        <input type="text" class="input_search" placeholder="funcionário" />
+        <img src="img/pesquisa.png" alt="" />
+      </div>
+
+      <div class="user">
+        <img class="img_user" src="img/add-user.png" alt="" />
+        <p class="name_user">Pedro</p>
+      </div>
+    </section>
+
+    <!----------------------------Conteúdo principal------------------------->
+    <main>
+      <!-----------Menu das listas de funcíonario e planilha---------------------->
+      <nav class="menu_list">
+        <button class="button_menu_list">Funcionáro</button>
+        <button class="button_menu_list">Planilha +</button>
+      </nav>
+      <!----------------------------Seções das listas----------------------------------->
+      <div class="container_lists">
+        <section class="employees section_list">
+          <div class="container_form_employees">
+            <form action="" class="form_employees">
+              <input
+                type="number"
+                placeholder="matrícula"
+                name="matricula"
+                id="matricula"
+              />
+              <input
+                type="text"
+                placeholder="funcionário"
+                name="nome"
+                id="nome"
+                required
+              />
+              <input
+                type="text"
+                placeholder="cargo"
+                name="cargo"
+                id="cargo"
+                required
+              />
+              <button class="button_add">Adicionar</button>
+            </form>
+          </div>
+
+          <div class="list_employees"></div>
+        </section>
+
+        <!-------------------------------Planilha---------------------------------->
+        <section class="create_list section_list">
+          <div class="header_create_list">
+            <div class="logo_list">
+              <img src="img/logo.png" alt="" />
+            </div>
+
+            <div class="container_title_list">
+              <input
+                type="text"
+                class="title_list"
+                placeholder="titulo da lista..."
+              />
+            </div>
+          </div>
+
+          <section class="section_date_turn">
+            <select name="" id="">
+              <option value="">Manhã</option>
+              <option value="">Noite</option>
+            </select>
+
+            <input type="text" placeholder="DD / MM / AA">
+            <input type="text" value="07:00 AS 17:00" readonly>
+        </section>
+          <section class="employee_planilhe">
+            <h4>MATRÍCULA</h4>
+            <h4>FUNCIONÁRIO</h4>
+            <h4>CARGO</h4>
+            <button class="delete_employee_planilhe">
+              <img src="img/desconto.png" alt="" />
+            </button>
+          </section>
+
+          
+
+          <div class="planilhe"></div>
+
+          <section class="section_add_planilha">
+            <button class="button_add_planilha">+</button>
+          </section>
+        
+        </section>
+      </div>
+      <audio src="audio/toque-fedback.mp3"></audio>
+    </main>
+
+    <!--------===-----Menu do final da pagina-------------------------------->
+    <section class="menu_bottom">
+      <nav class="items_menu_bottom">
+        <button class="button_pdf">
+          <img src="img/download-pdf.png" alt="" />
+        </button>
+        <button class="button_close_planilhe">
+          <img src="img/lixeira.png" alt="" />
+        </button>
+      </nav>
+      <div class="logo_rip">
+        <img src="img/logo.png" alt="" />
+      </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/employees.js"></script>
+    <script src="js/list.js"></script>
+  </body>
+</html>
