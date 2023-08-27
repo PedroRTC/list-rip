@@ -1,22 +1,16 @@
 let planilhe_employees = document.querySelector(".planilhe");
 let title_list = document.querySelector(".title_list");
 
-
 let button_close_planilhe = document.querySelector(".button_close_planilhe");
-
-
 
 let backend_list = [];
 let backend_title_list = "";
-
 
 backend_title_list =
   JSON.parse(localStorage.getItem("backend_title_list")) || [];
 backend_list = JSON.parse(localStorage.getItem("backend_list")) || [];
 
 title_list.value = backend_title_list;
-
-
 
 title_list.addEventListener("input", addBackendTitleList);
 button_close_planilhe.addEventListener("click", obsClose);
@@ -27,10 +21,7 @@ function addBackendTitleList() {
     "backend_title_list",
     JSON.stringify(backend_title_list.toUpperCase())
   ) || [];
-
- 
 }
-
 
 function addBackendPlanilhe(item, button_add_list) {
   button_add_list.classList.add("selection_button_add");
@@ -44,8 +35,8 @@ function addBackendPlanilhe(item, button_add_list) {
 
   localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
 
-  planilhe_employees.innerHTML=""
-  addPlanilhe()
+  planilhe_employees.innerHTML = "";
+  addPlanilhe();
 }
 
 function addPlanilhe() {

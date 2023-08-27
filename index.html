@@ -120,13 +120,16 @@
           </div>
 
           <section class="section_date_turn">
-            <select name="" id="">
-              <option value="">Manhã</option>
-              <option value="">Noite</option>
+            <select name="" class="select_turn">
+              <option value="Manhã">Manhã</option>
+              <option value="Manhã Extra">Manhã Extra</option>
+              <option value="Noite">Noite</option>
+              <option value="Noite Extra">Noite Extra</option>
+              
             </select>
 
             <input type="text" placeholder="DD / MM / AA">
-            <input type="text" value="07:00 AS 17:00" readonly>
+            <input type="text" class="input_workload" value="07:00 AS 17:00" readonly>
         </section>
           <section class="employee_planilhe">
             <h4>MATRÍCULA</h4>
@@ -169,5 +172,6 @@
     <script src="js/login.js"></script>
     <script src="js/employees.js"></script>
     <script src="js/list.js"></script>
+    <script src="js/selectDateTurn.js"></script>
   </body>
 </html>
