@@ -16,6 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
       rel="stylesheet"
     />
+
+    <!--icons bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!--html2pdf-->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
@@ -23,6 +26,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+
 
     <script src="js/downloadPdf.js" defer></script>
   </head>
@@ -125,29 +130,30 @@
               <option value="Manhã Extra">Manhã Extra</option>
               <option value="Noite">Noite</option>
               <option value="Noite Extra">Noite Extra</option>
-              
             </select>
 
-            <input type="text" placeholder="DD / MM / AA">
-            <input type="text" class="input_workload" value="07:00 AS 17:00" readonly>
-        </section>
+            <input type="text" placeholder="DD / MM / AA" />
+            <input
+              type="text"
+              class="input_workload"
+              value="07:00 AS 17:00"
+              readonly
+            />
+          </section>
           <section class="employee_planilhe">
             <h4>MATRÍCULA</h4>
             <h4>FUNCIONÁRIO</h4>
             <h4>CARGO</h4>
             <button class="delete_employee_planilhe">
-              <img src="img/desconto.png" alt="" />
+              <i class="bi -trash-fill"></i>
             </button>
           </section>
-
-          
 
           <div class="planilhe"></div>
 
           <section class="section_add_planilha">
             <button class="button_add_planilha">+</button>
           </section>
-        
         </section>
       </div>
       <audio src="audio/toque-fedback.mp3"></audio>

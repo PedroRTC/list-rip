@@ -63,36 +63,38 @@ function addPlanilhe() {
     matri_employee_planilhe.innerHTML = item_planilhe.matri;
     name_employee_planilhe.innerHTML = item_planilhe.employee;
     function_employee_planilhe.innerHTML = item_planilhe.function;
-    delete_employee_planilhe.innerHTML = `<img src="../img/lixeira.png">`;
+    delete_employee_planilhe.innerHTML = `<i class="bi bi-trash-fill"></i>`;
 
     employee_planilhe.appendChild(matri_employee_planilhe);
     employee_planilhe.appendChild(name_employee_planilhe);
     employee_planilhe.appendChild(function_employee_planilhe);
     employee_planilhe.appendChild(delete_employee_planilhe);
 
-    if(item_planilhe.select){
-      let section_turn=createElementWithClass('section','section_date_turn')
-      let select=createElementWithClass('select','select_turn')
-      let input_date=createElementWithClass('input','input')
-      let input_workload=createElementWithClass('input','input_workload')
+    if (item_planilhe.select) {
+      let section_turn = createElementWithClass("section", "section_date_turn");
+      let select = createElementWithClass("select", "select_turn");
+      let input_date = createElementWithClass("input", "input");
+      let input_workload = createElementWithClass("input", "input_workload");
 
-      select.innerHTML=`<option value="Manhã">Manhã</option>
+      select.innerHTML = `<option value="Manhã">Manhã</option>
       <option value="Manhã Extra">Manhã Extra</option>
       <option value="Noite">Noite</option>
-      <option value="Noite Extra">Noite Extra</option>`
+      <option value="Noite Extra">Noite Extra</option>`;
 
-      input_date.value=item_planilhe.date
+      input_date.setAttribute("placeholder", `${item_planilhe.date}`);
 
-      input_workload.value=item_planilhe.workload
+      input_workload.value = item_planilhe.workload;
 
-      section_turn.appendChild(select)
-      section_turn.appendChild(input_date)
-      section_turn.appendChild(input_workload)
-      section_turn.appendChild(delete_employee_planilhe)
-   
-      planilhe_employees.appendChild(section_turn)
-    
-    
+      section_turn.appendChild(select);
+      section_turn.appendChild(input_date);
+      section_turn.appendChild(input_workload);
+      section_turn.appendChild(delete_employee_planilhe);
+
+      planilhe_employees.appendChild(section_turn);
+      select.addEventListener("input", () => {
+        changeTurn(select, input_workload);
+      });
+
       delete_employee_planilhe.addEventListener("click", () => {
         deleteEmployee(
           backend_list,
@@ -100,16 +102,12 @@ function addPlanilhe() {
           section_turn,
           planilhe_employees
         );
-        localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
+        localStorage.setItem("backend_list", JSON.stringify(backend_list)) ||
+          [];
       });
-      
-    }else{
+    } else {
       planilhe_employees.appendChild(employee_planilhe);
     }
-
-
-
-  
 
     delete_employee_planilhe.addEventListener("click", () => {
       deleteEmployee(

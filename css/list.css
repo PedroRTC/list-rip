@@ -112,18 +112,25 @@ font-size: 10pt;
 }
 
 .delete_employee_planilhe {
-  width: 25px;
-  height: 25px;
+  width: 70px;
   border: none;
   cursor: pointer;
   outline: none;
-  background-color: white;
+  background-color: transparent;
+  font-size: 14pt;
+ 
+  
 }
 
-.delete_employee_planilhe img {
-  width: 20px;
-  height: 20px;
+.delete_employee_planilhe i {
+ display: inline-block;
+
 }
+
+.delete_employee_planilhe i:hover {
+  color: red;
+ 
+ }
 
 .container_date {
   background-color: rgb(252, 25, 0);

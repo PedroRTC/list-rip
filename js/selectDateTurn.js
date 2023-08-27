@@ -15,17 +15,19 @@ function addDateTurn() {
 
 addDateTurn();
 
-select_turn.addEventListener("input", changeTurn);
+select_turn.addEventListener("input",()=>{
+  changeTurn(select_turn,input_workload)
+})
 
-function changeTurn() {
-  if (select_turn.options.selectedIndex == "1") {
-    input_workload.value = "07:00 AS 19:00";
-  } else if (select_turn.options.selectedIndex == "2") {
-    input_workload.value = "19:00 AS 05:00";
-  } else if (select_turn.options.selectedIndex == "3") {
-    input_workload.value = "19:00 AS 07:00";
+function changeTurn(select,input) {
+  if (select.options.selectedIndex == "1") {
+    input.value = "07:00 AS 19:00";
+  } else if (select.options.selectedIndex == "2") {
+    input.value = "19:00 AS 05:00";
+  } else if (select.options.selectedIndex == "3") {
+    input.value = "19:00 AS 07:00";
   } else {
-    input_workload.value = "07:00 AS 17:00";
+    input.value = "07:00 AS 17:00";
   }
 
   backendTurnDate(select_turn.value, input_workload.value);
