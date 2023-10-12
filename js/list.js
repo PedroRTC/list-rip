@@ -1,7 +1,6 @@
 let planilhe_employees = document.querySelector(".planilhe");
 let title_list = document.querySelector(".title_list");
 
-
 let button_close_planilhe = document.querySelector(".button_close_planilhe");
 
 let backend_list = [];
@@ -72,54 +71,7 @@ function addPlanilhe() {
     employee_planilhe.appendChild(delete_employee_planilhe);
 
     if (item_planilhe.select) {
-      let section_turn = createElementWithClass("section", "section_date_turn");
-      let select = createElementWithClass("select", "select_turn");
-      let input_date = createElementWithClass("input", "input");
-      let input_workload = createElementWithClass("input", "input_workload");
-
-      select.innerHTML = `<option value="Manhã">Manhã</option>
-      <option value="Manhã Extra">Manhã Extra</option>
-      <option value="Noite">Noite</option>
-      <option value="Noite Extra">Noite Extra</option>`;
-
-    select.value=item_planilhe.select
-
-      input_date.setAttribute("placeholder", `${item_planilhe.date}`);
-      input_workload.setAttribute("readonly","readonly/")
-
-      input_workload.value = item_planilhe.workload;
-
-      section_turn.appendChild(select);
-      section_turn.appendChild(input_date);
-      section_turn.appendChild(input_workload);
-      section_turn.appendChild(delete_employee_planilhe);
-
-      planilhe_employees.appendChild(section_turn);
-
-      select.addEventListener("input", () => {
-        changeTurn(select, input_workload)
-        item_planilhe.select=select.value
-        item_planilhe.workload=input_workload.value
-
-        input_workload.value = item_planilhe.workload;
-      
-        
-      
-        
-        localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
-        console.log(item_planilhe)
-      });
-
-      delete_employee_planilhe.addEventListener("click", () => {
-        deleteEmployee(
-          backend_list,
-          item_planilhe,
-          section_turn,
-          planilhe_employees
-        );
-        localStorage.setItem("backend_list", JSON.stringify(backend_list)) ||
-          [];
-      });
+      newList(item_planilhe, delete_employee_planilhe);
     } else {
       planilhe_employees.appendChild(employee_planilhe);
     }
@@ -137,6 +89,48 @@ function addPlanilhe() {
 }
 
 addPlanilhe();
+
+function newList(item, delet) {
+  let section_turn = createElementWithClass("section", "section_date_turn");
+  let select = createElementWithClass("select", "select_turn");
+  let input_date = createElementWithClass("input", "date_list");
+  let input_workload = createElementWithClass("input", "input_workload");
+
+  select.innerHTML = `<option value="Manhã">Manhã</option>
+  <option value="Manhã Extra">Manhã Extra</option>
+  <option value="Noite">Noite</option>
+  <option value="Noite Extra">Noite Extra</option>`;
+
+  select.value = item.select;
+
+  input_date.setAttribute("placeholder", `${item.date}`);
+  input_workload.setAttribute("readonly", "readonly/");
+
+  input_workload.value = item.workload;
+
+  section_turn.appendChild(select);
+  section_turn.appendChild(input_date);
+  section_turn.appendChild(input_workload);
+  section_turn.appendChild(delet);
+
+  planilhe_employees.appendChild(section_turn);
+
+  select.addEventListener("input", () => {
+    changeTurn(select, input_workload);
+    item.select = select.value;
+    item.workload = input_workload.value;
+
+    input_workload.value = item.workload;
+
+    localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
+    console.log(item_planilhe);
+  });
+
+  delet.addEventListener("click", () => {
+    deleteEmployee(backend_list, item, section_turn, planilhe_employees);
+    localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
+  });
+}
 
 function obsClose() {
   let container_close_planilhe = createElementWithClass(
