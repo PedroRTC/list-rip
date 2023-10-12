@@ -1,11 +1,11 @@
 let list_employees = document.querySelector(".list_employees");
 let form_employees = document.querySelector(".form_employees");
-let input_search = document.querySelector(".input_search");
+
 let backend_employee = [];
 let filter_employee = [];
 
 form_employees.addEventListener("submit", addBackendEmployees);
-input_search.addEventListener("input", searchEmployee);
+
 backend_employee = JSON.parse(localStorage.getItem("backend_employee")) || [];
 
 function addBackendEmployees(event) {

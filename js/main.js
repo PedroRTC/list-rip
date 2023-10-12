@@ -2,6 +2,7 @@ let button_menu_list = document.querySelectorAll(".menu_list button");
 let container_lists = document.querySelector(".container_lists");
 let button_menu_bottom = document.querySelectorAll(".items_menu_bottom button");
 let audio = document.querySelector("audio");
+let input_search = document.querySelector(".input_search");
 
 button_menu_list[0].classList.add("class_button_menu");
 
@@ -52,26 +53,35 @@ function createElementWithClass(type, elementClass) {
   return element;
 }
 
+input_search.addEventListener("input", searchEmployee);
+
 function searchEmployee() {
-  if (input_search.value.length >= 3) {
-    filter_employee = backend_employee.filter(({ employee }) =>
-      employee.toLowerCase().includes(input_search.value.toLowerCase())
-    );
-    let div_filter = createElementWithClass("div", "div_filter");
+  filter_employee = backend_employee.filter(({ employee }) =>
+    employee.toLowerCase().includes(input_search.value.toLowerCase())
+  );
+
+  let div_filter = createElementWithClass("div", "div_filter");
+  addListEmployees(filter_employee, div_filter);
+
+
+ 
+  if (input_search.value.length > 2) {
     window.document.body.appendChild(div_filter);
-    addListEmployees(filter_employee, div_filter);
-  }
-
-  if (input_search.value.length < 3) {
+    console.log('Maior que 2')
+  
+  } else {
     let element_filter = document.querySelector(".div_filter");
-
     if (element_filter) {
       window.document.body.removeChild(element_filter);
+    console.log('Menor que 2')
+       
     }
+
+  
   }
 }
 
-function checkEmployeeList(backend,object) {
+function checkEmployeeList(backend, object) {
   if (backend.length > 0) {
     let check_employee = backend.filter(
       (i) => i.employee.toUpperCase() == object.employee.toUpperCase()
@@ -120,5 +130,4 @@ function fedback() {
   setTimeout(() => {
     container_fedback.style.transform = "translateX(100%)";
   }, 2000);
-
 }
