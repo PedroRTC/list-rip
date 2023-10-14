@@ -179,8 +179,8 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    transform: translateX(100%);
-    transition: all 0.5s;
+    transform:translateX(100%);
+    transition:all 5s;
   }
   
   .desc_fedback {
@@ -192,12 +192,14 @@
     margin: 0px 20px;
     font-family: sans-serif;
     font-size: 10pt;
+    transition:all 1s;
   }
   
   .fedback_add {
     border: 1px solid green;
     background-color: rgb(211, 251, 211);
     color: green;
+    
   
   }
   

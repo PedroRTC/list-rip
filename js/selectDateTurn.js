@@ -1,5 +1,6 @@
 let select_turn = document.querySelector(".select_turn");
 let input_workload = document.querySelector(".input_workload");
+let date_list=document.querySelector(".date_list")
 let button_add_planilha = document.querySelector(".button_add_planilha");
 
 let backend_turn_date = [];
@@ -10,6 +11,8 @@ function addDateTurn() {
   backend_turn_date.map((item) => {
     select_turn.value = item.turn;
     input_workload.value = item.workload;
+    date_list.value=item.date
+
   });
 }
 
@@ -18,6 +21,10 @@ addDateTurn();
 select_turn.addEventListener("input", () => {
   changeTurn(select_turn, input_workload);
 });
+
+date_list.addEventListener('input',()=>{
+  backendTurnDate(select_turn.value, input_workload.value,date_list.value);
+})
 
 function changeTurn(select, input) {
   if (select.options.selectedIndex == "1") {
@@ -30,7 +37,7 @@ function changeTurn(select, input) {
     input.value = "07:00 AS 17:00";
   }
 
-  backendTurnDate(select_turn.value, input_workload.value);
+  backendTurnDate(select_turn.value, input_workload.value,date_list.value);
 }
 
 function ChangeDate(input, item) {
@@ -39,10 +46,11 @@ function ChangeDate(input, item) {
   localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
 }
 
-function backendTurnDate(turn, workload) {
+function backendTurnDate(turn, workload,date) {
   new_turn_date = {
     turn: turn,
     workload: workload,
+    date:date
   };
 
   backend_turn_date.splice(new_turn_date);

@@ -186,6 +186,7 @@ function closePlanilhe(button_close) {
   localStorage.removeItem("backend_title_list");
   localStorage.removeItem("backend_date");
   localStorage.removeItem("backend_list");
+  localStorage.removeItem("backend_turn_date")
 
   button_close.innerHTML = `Excluindo...`;
 
