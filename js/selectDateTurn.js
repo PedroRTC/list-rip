@@ -2,13 +2,9 @@ let select_turn = document.querySelector(".select_turn");
 let input_workload = document.querySelector(".input_workload");
 let button_add_planilha = document.querySelector(".button_add_planilha");
 
-
 let backend_turn_date = [];
 
 backend_turn_date = JSON.parse(localStorage.getItem("backend_turn_date")) || [];
-
-
-
 
 function addDateTurn() {
   backend_turn_date.map((item) => {
@@ -19,11 +15,11 @@ function addDateTurn() {
 
 addDateTurn();
 
-select_turn.addEventListener("input",()=>{
-  changeTurn(select_turn,input_workload)
-})
+select_turn.addEventListener("input", () => {
+  changeTurn(select_turn, input_workload);
+});
 
-function changeTurn(select,input) {
+function changeTurn(select, input) {
   if (select.options.selectedIndex == "1") {
     input.value = "07:00 AS 19:00";
   } else if (select.options.selectedIndex == "2") {
@@ -37,11 +33,10 @@ function changeTurn(select,input) {
   backendTurnDate(select_turn.value, input_workload.value);
 }
 
-function ChangeDate(input,item){
-  console.log(input.value)
-  item.date=input.value
+function ChangeDate(input, item) {
+  console.log(input.value);
+  item.date = input.value;
   localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
-  
 }
 
 function backendTurnDate(turn, workload) {
@@ -63,7 +58,7 @@ button_add_planilha.addEventListener("click", addNewPlanilhe);
 function addNewPlanilhe() {
   new_employee_list = {
     select: "Manhã",
-    date:  "",
+    date: "",
     workload: "07:00 AS 17:00",
     employee: "",
   };

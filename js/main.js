@@ -56,7 +56,6 @@ function createElementWithClass(type, elementClass) {
 input_search.addEventListener("input", searchEmployee);
 
 function searchEmployee() {
-
   let div_filter = createElementWithClass("div", "div_filter");
 
   filter_employee = backend_employee.filter(({ employee }) =>
@@ -66,20 +65,13 @@ function searchEmployee() {
   addListEmployees(filter_employee, div_filter);
 
   let element_filter = document.querySelector(".div_filter");
- 
+
   if (input_search.value.length > 2 && !element_filter) {
     window.document.body.appendChild(div_filter);
-   
-  
   } else {
-   
     if (element_filter) {
       window.document.body.removeChild(element_filter);
-    
-       
     }
-
-  
   }
 }
 
