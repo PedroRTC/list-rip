@@ -101,10 +101,13 @@ function newList(item, delet) {
   <option value="Noite">Noite</option>
   <option value="Noite Extra">Noite Extra</option>`;
 
+  input_date.setAttribute('placeholder','DD/MM/AA')
+  input_workload.setAttribute("readonly", "readonly");
+
   select.value = item.select;
 
-  input_date.setAttribute("placeholder", `${item.date}`);
-  input_workload.setAttribute("readonly", "readonly/");
+  input_date.value=item.date
+ 
 
   input_workload.value = item.workload;
 
@@ -130,6 +133,10 @@ function newList(item, delet) {
     deleteEmployee(backend_list, item, section_turn, planilhe_employees);
     localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
   });
+
+   input_date.addEventListener('input',()=> {
+  ChangeDate(input_date,item)
+})
 }
 
 function obsClose() {

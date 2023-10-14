@@ -69,13 +69,13 @@ function searchEmployee() {
  
   if (input_search.value.length > 2 && !element_filter) {
     window.document.body.appendChild(div_filter);
-    console.log('Maior que 2')
+   
   
   } else {
    
     if (element_filter) {
       window.document.body.removeChild(element_filter);
-    console.log('Menor que 2')
+    
        
     }
 

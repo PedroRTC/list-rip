@@ -2,6 +2,7 @@ let select_turn = document.querySelector(".select_turn");
 let input_workload = document.querySelector(".input_workload");
 let button_add_planilha = document.querySelector(".button_add_planilha");
 
+
 let backend_turn_date = [];
 
 backend_turn_date = JSON.parse(localStorage.getItem("backend_turn_date")) || [];
@@ -36,6 +37,13 @@ function changeTurn(select,input) {
   backendTurnDate(select_turn.value, input_workload.value);
 }
 
+function ChangeDate(input,item){
+  console.log(input.value)
+  item.date=input.value
+  localStorage.setItem("backend_list", JSON.stringify(backend_list)) || [];
+  
+}
+
 function backendTurnDate(turn, workload) {
   new_turn_date = {
     turn: turn,
@@ -55,7 +63,7 @@ button_add_planilha.addEventListener("click", addNewPlanilhe);
 function addNewPlanilhe() {
   new_employee_list = {
     select: "Manhã",
-    date: "DD/MM/AA",
+    date:  "",
     workload: "07:00 AS 17:00",
     employee: "",
   };
