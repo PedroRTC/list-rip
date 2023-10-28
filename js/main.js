@@ -82,16 +82,20 @@ function checkEmployeeList(backend, object) {
     );
 
     if (check_employee.length == 1) {
-      backend.push();
+      desc_fedback.classList.remove("fedback_add");
       desc_fedback.classList.add("fedback_repli");
       desc_fedback.innerHTML = "Funcionário já está na lista";
       audio.src="audio/toque-erro.mp3"
+   
+      backend.push();
       fedback();
     } else {
-      backend.push(object);
+      
+      desc_fedback.classList.remove("fedback_repli");
       desc_fedback.classList.add("fedback_add");
       desc_fedback.innerHTML = "Funcionário foi adicionado";
       audio.src="audio/toque-fedback.mp3"
+      backend.push(object);
       fedback();
     }
   } else {
